@@ -8,10 +8,10 @@ from src.base import Base
 class Submission(Base):
     def __init__(self, api_key):
         super().__init__(api_key=api_key)
-        self._cur_round = self._get(Submission.NESTQUANT_API_ENDPOINT + 'competition/nestquant_tournament_2023/current-round').json()['Current round']
-        self._records_url = Submission.NESTQUANT_API_ENDPOINT + f'competition/nestquant_tournament_2023/records/api?api_key=' + self._api_key
-        self._result_url = Submission.NESTQUANT_API_ENDPOINT + f'competition/nestquant_tournament_2023/result/api?&api_key=' + self._api_key
-        self._submit_url = Submission.NESTQUANT_API_ENDPOINT + f'competition/nestquant_tournament_2023/submit/api?api_key=' + self._api_key
+        self._cur_round = self._get(''https://api-dev.nestquant.com/data/api/' + 'competition/nestquant_tournament_2023/current-round').json()['Current round']
+        self._records_url = ''https://api-dev.nestquant.com/data/api/' + f'competition/nestquant_tournament_2023/records/api?api_key=' + self._api_key
+        self._result_url = 'https://api-dev.nestquant.com/data/api/' + f'competition/nestquant_tournament_2023/result/api?&api_key=' + self._api_key
+        self._submit_url = ''https://api-dev.nestquant.com/data/api/' + f'competition/nestquant_tournament_2023/submit/api?api_key=' + self._api_key
     
     def __convert_dict_to_url_str(
         self,
